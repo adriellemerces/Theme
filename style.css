@@ -1,0 +1,70 @@
+body{
+    background-color: #34304655;
+    transition: 0.5s;
+    height: 100vh;
+
+}
+
+.changeTheme{
+    margin: 100px auto 0;
+    width: 80px;
+    height: 40px;
+    display: block;
+    background-color: #cbcbcb;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.5s;
+}
+
+.changeTheme::before{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    content: '';
+    border-radius: 50%;
+    transition: 0.5s;
+    box-shadow: 0 5px 10px #b5b4b4;
+}
+
+.changeTheme input{
+    display: none;
+
+}
+
+.list{
+    padding: 0%;
+    margin: 30px auto;
+    list-style: none;
+    text-align: left;
+    width: 400px;
+    display: block;
+}
+
+.list li{
+    padding: 20px;
+    color: #555;
+    background-color: #ddd;
+    margin-bottom: 1px;
+    font-family: monospace;
+}
+
+.changeTheme:has(input:checked){
+    background-color: #4cb774;
+}
+
+.changeTheme:has(input:checked)::before{ 
+    left:calc(100% - 35px);
+
+}
+
+body:has(input[name="changeTheme"]:checked){
+    background-image: linear-gradient(to top, #1a1f39, #2e2534); /* Coloquei a cor (#2e2534) que estava faltando*/
+}
+
+body:has(input[name="changeTheme"]:checked) .list li{ 
+    color: #eee;
+    background-color: #34304655;
+}
